@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p class="form-group">
+            {{ form.first_name.label }}<br />
+            {{ form.first_name(size=64) }}
+            {% for error in form.first_name.errors %}
+                <span class="error-msg">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p class="form-group">
+            {{ form.last_name.label }}<br />
+            {{ form.last_name(size=64) }}
+            {% for error in form.last_name.errors %}
+                <span class="error-msg">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p class="btn btn-default">
+            {{ form.submit() }}
+        </p>
+    </form>
+    {% if form.errors %}
+        {{ form.errors }}
+    {% endif %}
+{% endblock %}

@@ -1,29 +1,30 @@
 # -*- coding: utf-8 -*-
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, SelectField, PasswordField
+from wtforms import StringField, SubmitField, PasswordField, SelectMultipleField
 from wtforms.validators import Optional, DataRequired
+from .resources import Resources as Res
 
 
 class SearchForm(FlaskForm):
-    search_title = StringField('Search by Book title')
-    search_author = StringField('Search by Author')
-    submit = SubmitField('Search')
+    search_title = StringField(Res.FORM_SEARCH_BY_TITLE)
+    search_author = StringField(Res.FORM_SEARCH_BY_AUTHOR)
+    submit = SubmitField(Res.SEARCH_ACTION)
 
 
 class AddEditBookForm(FlaskForm):
-    book_title = StringField("Book name", validators=[DataRequired()])
-    book_genre = StringField("Genre", validators=[Optional()])
-    authors = SelectField("Select author")
-    submit = SubmitField("Add book")
+    book_title = StringField(Res.FORM_ADD_EDIT_BOOK_TITLE, validators=[DataRequired()])
+    book_genre = StringField(Res.FORM_ADD_EDIT_BOOK_GENRE, validators=[Optional()])
+    authors = SelectMultipleField(Res.FORM_ADD_EDIT_BOOK_AUTHORS)
+    submit = SubmitField(Res.FORM_ADD_EDIT_BOOK_SUBMIT)
 
 
 class AddAuthorForm(FlaskForm):
-    first_name = StringField("First name", validators=[DataRequired()])
-    last_name = StringField("Last name", validators=[DataRequired()])
-    submit = SubmitField("Add author")
+    first_name = StringField(Res.FORM_ADD_AUTHOR_FNAME, validators=[DataRequired()])
+    last_name = StringField(Res.FORM_ADD_AUTHOR_LNAME, validators=[DataRequired()])
+    submit = SubmitField(Res.ADD_AUTHOR_ACTION)
 
 
 class LoginForm(FlaskForm):
-    login = StringField("Login or email", validators=[DataRequired()])
-    password = PasswordField("Password", validators=[DataRequired()])
-    submit = SubmitField("SignUp")
+    login = StringField(Res.FORM_LOGIN_LOGIN, validators=[DataRequired()])
+    password = PasswordField(Res.FORM_LOGIN_PASS, validators=[DataRequired()])
+    submit = SubmitField(Res.SIGNIN_ACTION)

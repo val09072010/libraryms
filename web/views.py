@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from web import web, db
+from web import web, db, core
 from werkzeug.urls import url_parse
 from flask import render_template, redirect, url_for, session, flash, request
 from flask_login import current_user, login_user, logout_user, login_required
@@ -30,15 +30,16 @@ def search():
     if form.validate_on_submit():
         title_to_search = form.search_title.data.strip()
         author_to_search = form.search_author.data.strip()
+        search_text = ""
         if title_to_search:
-            search_title = "%{0}%".format(title_to_search)
-            raw_books = db.session.query(Book).filter(Book.title.ilike(search_title))
+            criteria = core.SEARCH_BY_TITLE
+            search_text = title_to_search
         elif author_to_search:
-            search_author = "%{0}%".format(author_to_search)
-            raw_books = db.session.query(Book).join(Book.authors).filter(Author.last_name.ilike(search_author))
+            criteria = core.SEARCH_BY_AUTHOR_LASTNAME
+            search_text = author_to_search
         else:
-            raw_books = Book.query.all()
-        session['books'] = [b.to_dict for b in raw_books]
+            criteria = core.SEARCH_ALL
+        session['books'] = core.search_book(search_text, criteria=criteria, serialize=True)
         return redirect(url_for("results"))
     return render_template("search.html", form=form, title=Res.TITLE, page_action=Res.SEARCH_ACTION)
 
@@ -46,20 +47,16 @@ def search():
 @web.route('/edit_book/<book_id>', methods=['GET', 'POST'])
 @login_required
 def edit_book(book_id):
-    book = Book.query.filter_by(id=book_id).first_or_404()
-    form = AddEditBookForm()
-    form.authors.choices = list((str(i.id), i) for i in db.session.query(Author).all())
+    form = prepare_add_edit_book_form()
     if form.validate_on_submit():
         title = form.book_title.data.strip()
         genre = form.book_genre.data.strip()
-        author_id = int(form.authors.data)
-        book.title = title
-        book.genre = genre
-        book.authors = [db.session.query(Author).filter_by(id=author_id).first()]
-        db.session.commit()
-        flash(Res.FLASH_EDIT_BOOK.format(title, genre, author_id))
+        author_ids = form.authors.data
+        book = core.update_book(book_id, title, genre, author_ids)
+        flash(Res.FLASH_EDIT_BOOK.format(book.title, book.genre, book.authors))
         return redirect(url_for('index'))
     elif request.method == 'GET':
+        book = core.get_book_by_id(book_id)
         form.authors.default = str(book.authors[0].id)
         form.process()
         form.book_title.data = book.title
@@ -70,19 +67,21 @@ def edit_book(book_id):
 @web.route('/add_book', methods=['GET', 'POST'])
 @login_required
 def add_book():
-    form = AddEditBookForm()
-    form.authors.choices = list((str(i.id), i) for i in db.session.query(Author).all())
+    form = prepare_add_edit_book_form()
     if form.validate_on_submit():
         title = form.book_title.data.strip()
         genre = form.book_genre.data.strip()
-        author_id = int(form.authors.data)
-        flash(Res.FLASH_ADD_BOOK.format(title, genre, author_id))
-        author = db.session.query(Author).filter_by(id=author_id).first()
-        book = Book(title, genre, [author])
-        db.session.add(book)
-        db.session.commit()
+        author_ids = form.authors.data
+        book = core.store_book(title, genre, author_ids)
+        flash(Res.FLASH_ADD_BOOK.format(book.title, book.genre, book.authors))
         return redirect(url_for('index'))
     return render_template("add_edit_book.html", form=form, title=Res.TITLE, page_action=Res.ADD_BOOK_ACTION)
+
+
+def prepare_add_edit_book_form():
+    form = AddEditBookForm()
+    form.authors.choices = list((str(i.id), i) for i in db.session.query(Author).all())
+    return form
 
 
 @web.route('/add_author', methods=['GET', 'POST'])

@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="static/js/app.js"></script>
         {% if page_action %}
             <title>{{ title }}. {{ page_action }}</title>
         {% else %}
@@ -17,7 +18,7 @@
             <nav class="navbar navbar">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a href="{{ url_for('index') }}" class="navbar-brand"><img src="static/img/logo.png" width="24" height="24" alt="{{ title }}"></a>
+                        <a href="{{ url_for('index') }}" class="navbar-brand">{{ title }}</a>
                     </div>
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url_for('index') }}">Home</a> </li>

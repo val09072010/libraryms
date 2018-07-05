@@ -102,6 +102,14 @@ def add_author():
     return render_template("add_author.html", form=form, title=Res.TITLE, page_action=Res.ADD_AUTHOR_ACTION)
 
 
+@web.route('/delete_book/<book_id>', methods=['POST'])
+@login_required
+def del_book(book_id):
+    deleted_book_title, deleted_book_genre = core.delete_book(book_id)
+    flash(Res.FLASH_DEL_BOOK.format(deleted_book_title, deleted_book_genre))
+    return redirect(url_for('index'))
+
+
 @web.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:

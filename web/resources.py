@@ -9,6 +9,7 @@ class Resources:
     RESULT_ACTION = u'Search results'
 
     FLASH_ADD_BOOK = u'Book "{0}" ({1}), author(s) #{2} added successfully'
+    FLASH_DEL_BOOK = u'Book "{0}" ({1}) deleted successfully. Please note! Authors remain is system.'
     FLASH_EDIT_BOOK = u'Book "{0}" ({1}), author(s) #{2} updated successfully'
     FLASH_ADD_AUTHOR = u'Author {0}: {1} {2} added successfully'
 

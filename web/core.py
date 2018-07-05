@@ -55,6 +55,15 @@ def store_book(title, genre, author_ids):
     return book
 
 
+def delete_book(book_id):
+    deleted_book = get_book_by_id(book_id)
+    deleted_book_title = deleted_book.title
+    deleted_book_genre = deleted_book.genre
+    db.session.query(Book).filter_by(id=book_id).delete()
+    db.session.commit()
+    return deleted_book_title, deleted_book_genre
+
+
 def process_search_query(search_text):
     processed_search_text = u"%{0}%".format(search_text)
     if security_validate(processed_search_text):

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-import re
-from web import web, db
-from .models import Book, Author, User
+from web import db
+from .models import Book, Author
 from .resources import Resources as Res
 
 

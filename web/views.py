@@ -4,7 +4,7 @@ from werkzeug.urls import url_parse
 from flask import render_template, redirect, url_for, session, flash, request
 from flask_login import current_user, login_user, logout_user, login_required
 from .forms import SearchForm, AddEditBookForm, AddAuthorForm, LoginForm
-from .models import Book, Author, User
+from .models import Author, User
 from .resources import Resources as Res
 
 

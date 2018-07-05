@@ -8,8 +8,8 @@ class Resources:
     ADD_AUTHOR_ACTION = u'Add author'
     RESULT_ACTION = u'Search results'
 
-    FLASH_ADD_BOOK = u'Book "{0}" ({1}), author id(s) #{2} added successfully'
-    FLASH_EDIT_BOOK = u'Book "{0}" ({1}), author id(s) #{2} updated successfully'
+    FLASH_ADD_BOOK = u'Book "{0}" ({1}), author(s) #{2} added successfully'
+    FLASH_EDIT_BOOK = u'Book "{0}" ({1}), author(s) #{2} updated successfully'
     FLASH_ADD_AUTHOR = u'Author {0}: {1} {2} added successfully'
 
     LOGIN_ERROR = u'Invalid username or password'

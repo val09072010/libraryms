@@ -14,10 +14,10 @@
     </head>
     <body>
         <div class="container">
-            <nav class="navbar navbar-inverse">
+            <nav class="navbar navbar">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a href="{{ url_for('index') }}" class="navbar-brand">{{ title }}</a>
+                        <a href="{{ url_for('index') }}" class="navbar-brand"><img src="static/img/logo.png" width="24" height="24" alt="{{ title }}"></a>
                     </div>
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url_for('index') }}">Home</a> </li>
@@ -50,7 +50,7 @@
                 {% endif %}
             {% endwith %}
 
-            {% if request.path == '/index' %}
+            {% if request.path == '/index' or request.path == '/' %}
                 <div id="goalsAndReqsCarousel" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
@@ -65,10 +65,10 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            <img src="static/img/back_1.png" alt="matrix" width="100%">
+                            <img src="static/img/back_1.png" alt="" width="100%">
                             <div class="carousel-caption">
                                 <h4>Цель: Написать тестовое web-приложение по управлению электронной библиотекой</h4>
-                                <div class="alert alert-info">Inspired by https://toster.ru/q/176427</div>
+                                <div class="alert alert-success">Inspired by https://toster.ru/q/176427</div>
                                 <p>Критерии и требования</p>
                                 <ul>
                                     <li>Управление списком книг: добавить / удалить / редактировать книгу</li>
@@ -80,19 +80,19 @@
                             </div>
                         </div>
                         <div class="item">
-                            <img src="static/img/back_2.png" alt="math" width="100%">
+                            <img src="static/img/back_2.png" alt="" width="100%">
                             <div class="carousel-caption">
                                 <h3>Поиск книг по названию либо автору (доступно анонимному пользователю при наличии аутентификации)</h3>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="static/img/back_1.png" alt="matrix" width="100%">
+                            <img src="static/img/back_3.png" alt="" width="100%">
                             <div class="carousel-caption">
-                                <h3>Аутентификации и <del>авторизация</del> (по желанию кандидата)</h3>
+                                <h3>Аутентификации и авторизация (по желанию кандидата)</h3>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="static/img/back_2.png" alt="math" width="100%">
+                            <img src="static/img/back_1.png" alt="" width="100%">
                             <div class="carousel-caption">
                                 <h3>Технологии, которые должны быть задействованы</h3>
                                 <ul>
@@ -106,32 +106,32 @@
                             </div>
                         </div>
                         <div class="item">
-                            <img src="static/img/back_1.png" alt="matrix" width="100%">
+                            <img src="static/img/back_2.png" alt="" width="100%">
                             <div class="carousel-caption">
                                 <h3>Дополнительные требования</h3>
                                 <ul>
-                                    <li>Код проекта должен быть доступен на сервисе github.org или <del>bitbucket.org</del></li>
+                                    <li>Код проекта должен быть доступен на сервисе github.org <del>или bitbucket.org</del></li>
                                     <li>Проект должен содержать SQL скрипт для развертывания базы данных и наполнения ее тестовыми данными</li>
                                     <li>Пользовательские данные должны проверяться перед сохранением в БД</li>
                                 </ul>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="static/img/back_2.png" alt="math" width="100%">
+                            <img src="static/img/back_3.png" alt="" width="100%">
                             <div class="carousel-caption">
                                 <h3>Дополнительные знания</h3>
                                 <ul>
                                     <li>HTTP</li>
-                                    <li>WSGI</li>
-                                    <li>SQL, Transactions, Transaction Isolation Levels</li>
+                                    <li><del>WSGI</del></li>
+                                    <li><del>SQL, Transactions, Transaction Isolation Levels</del></li>
                                     <li>SQLAlchemy</li>
-                                    <li>Уязвимости веб-сайтов</li>
-                                    <li>User Experience</li>
+                                    <li><del>Уязвимости веб-сайтов</del></li>
+                                    <li><del>User Experience</del></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="static/img/back_1.png" alt="matrix" width="100%">
+                            <img src="static/img/back_1.png" alt="" width="100%">
                             <div class="carousel-caption">
                                 <h3>RoadMap</h3>
                                 <ul>

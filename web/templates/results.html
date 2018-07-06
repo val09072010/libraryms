@@ -19,12 +19,13 @@
                         <a href="#" class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#confirmDelete"></a>
                         <div class="modal fade" id="confirmDelete" role="dialog">
                             <div class="modal-dialog">
-                                <div class="modal-content">
+                                <div class="modal-content well-lg">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <h4 class="modal-title">Are you sure you want to delete the book ?</h4>
                                     </div>
-                                    <form action="/delete_book/{{ book.id }}" method="post" name="delete">
+                                    <script>var id = {{ book.id }}</script>
+                                    <form action="/delete_book/{{ book.id }}" method="post" name="delete" class="form-inline">
                                         <div class="form-group">
                                             <div class="checkbox">
                                                 <label><input type="checkbox" value="" onclick="confirmDelete()">I confirm</label>
@@ -33,7 +34,7 @@
                                         </div>
                                     </form>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
                                     </div>
                               </div>
                             </div>

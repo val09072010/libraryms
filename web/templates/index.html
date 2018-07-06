@@ -7,8 +7,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="static/js/app.js"></script>
+        <link rel="stylesheet" href="/static/css/lms.css">
         {% if page_action %}
-            <title>{{ title }}. {{ page_action }}</title>
+            <title>{{ title }}. {{ page_action }}.</title>
         {% else %}
             <title>{{ title }}</title>
         {% endif %}
@@ -156,6 +157,8 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
+                <br />
+                <br />
             {% else %}
                 {% if current_user.is_anonymous %}
                     <h3>Guest, welcome to LMS. {{ page_action }} </h3>

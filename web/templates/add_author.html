@@ -17,9 +17,7 @@
                 <span class="error-msg">[{{ error }}]</span>
             {% endfor %}
         </p>
-        <p class="btn btn-default">
-            {{ form.submit() }}
-        </p>
+        {{ form.submit(class="btn btn-primary") }}
     </form>
     {% if form.errors %}
         {{ form.errors }}

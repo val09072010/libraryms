@@ -105,6 +105,7 @@ def add_author():
 @web.route('/delete_book/<book_id>', methods=['POST'])
 @login_required
 def del_book(book_id):
+    print(request)
     deleted_book_title, deleted_book_genre = core.delete_book(book_id)
     flash(Res.FLASH_DEL_BOOK.format(deleted_book_title, deleted_book_genre))
     return redirect(url_for('index'))

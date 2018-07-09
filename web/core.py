@@ -59,9 +59,8 @@ def delete_book(book_id):
     deleted_book = get_book_by_id(book_id)
     deleted_book_title = deleted_book.title
     deleted_book_genre = deleted_book.genre
-    print(book_id)
-    # db.session.query(Book).filter_by(id=book_id).delete()
-    # db.session.commit()
+    db.session.query(Book).filter_by(id=book_id).delete()
+    db.session.commit()
     return deleted_book_title, deleted_book_genre
 
 

@@ -3,7 +3,7 @@ from web import web, db, core
 from werkzeug.urls import url_parse
 from flask import render_template, redirect, url_for, session, flash, request
 from flask_login import current_user, login_user, logout_user, login_required
-from .forms import SearchForm, AddEditBookForm, AddAuthorForm, LoginForm
+from .forms import SearchForm, AddEditBookForm, AddAuthorForm, LoginForm, DeleteForm
 from .models import Author, User
 from .resources import Resources as Res
 
@@ -102,13 +102,18 @@ def add_author():
     return render_template("add_author.html", form=form, title=Res.TITLE, page_action=Res.ADD_AUTHOR_ACTION)
 
 
-@web.route('/delete_book/<book_id>', methods=['POST'])
+@web.route('/delete_book/<book_id>', methods=['POST', 'GET'])
 @login_required
 def del_book(book_id):
-    print(request)
-    deleted_book_title, deleted_book_genre = core.delete_book(book_id)
-    flash(Res.FLASH_DEL_BOOK.format(deleted_book_title, deleted_book_genre))
-    return redirect(url_for('index'))
+    form = DeleteForm()
+    if form.validate_on_submit():
+        deleted_book_title, deleted_book_genre = core.delete_book(book_id)
+        flash(Res.FLASH_DEL_BOOK.format(deleted_book_title, deleted_book_genre))
+        return redirect(url_for('index'))
+    else:
+        deleted_book = core.get_book_by_id(book_id)
+        return render_template("delete.html", form=form, ask_for_confirmation=Res.FORM_DEL_ASK,
+                               title=Res.TITLE, page_action=Res.DEL_BOOK_ACTION, book=deleted_book)
 
 
 @web.route('/login', methods=['GET', 'POST'])

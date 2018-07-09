@@ -7,6 +7,7 @@ class Resources:
     EDIT_BOOK_ACTION = u'Edit book'
     ADD_AUTHOR_ACTION = u'Add author'
     RESULT_ACTION = u'Search results'
+    DEL_BOOK_ACTION = u'Delete book'
 
     FLASH_ADD_BOOK = u'Book "{0}" ({1}), author(s) #{2} added successfully'
     FLASH_DEL_BOOK = u'Book "{0}" ({1}) deleted successfully. Please note! Authors remain is system.'
@@ -33,3 +34,6 @@ class Resources:
 
     FORM_LOGIN_LOGIN = u'Login or email'
     FORM_LOGIN_PASS = u'Password'
+
+    FORM_DEL_CONFIRM = u'I confirm'
+    FORM_DEL_ASK = u'Please confirm that you want to delete the book:'

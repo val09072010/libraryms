@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField, SelectMultipleField
+from wtforms import StringField, SubmitField, PasswordField, SelectMultipleField, BooleanField
 from wtforms.validators import Optional, DataRequired
 from .resources import Resources as Res
 
@@ -28,3 +28,8 @@ class LoginForm(FlaskForm):
     login = StringField(Res.FORM_LOGIN_LOGIN, validators=[DataRequired()])
     password = PasswordField(Res.FORM_LOGIN_PASS, validators=[DataRequired()])
     submit = SubmitField(Res.SIGNIN_ACTION)
+
+
+class DeleteForm(FlaskForm):
+    confirm_del = BooleanField(Res.FORM_DEL_CONFIRM, default=False, render_kw={'onclick': 'confirmDelete()'})
+    submit = SubmitField(Res.DEL_BOOK_ACTION, id="confirmDeleteBtn", render_kw={'disabled': 'disabled'})

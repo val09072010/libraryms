@@ -16,29 +16,7 @@
                     <td>{{ book.authors }}</td>
                     <td>
                         <a href="/edit_book/{{ book.id }}" class="glyphicon glyphicon-edit"></a>
-                        <a href="#" class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#confirmDelete"></a>
-                        <div class="modal fade" id="confirmDelete" role="dialog">
-                            <div class="modal-dialog">
-                                <div class="modal-content well-lg">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Are you sure you want to delete the book ?</h4>
-                                    </div>
-                                    <script>var id = {{ book.id }}</script>
-                                    <form action="/delete_book/{{ book.id }}" method="post" name="delete" class="form-inline">
-                                        <div class="form-group">
-                                            <div class="checkbox">
-                                                <label><input type="checkbox" value="" onclick="confirmDelete()">I confirm</label>
-                                            </div>
-                                            <input type="submit" class="btn btn-danger" value="Delete" disabled id="confirmDeleteBtn">
-                                        </div>
-                                    </form>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                                    </div>
-                              </div>
-                            </div>
-                          </div>
+                        <a href="/delete_book/{{ book.id }}" class="glyphicon glyphicon-remove"></a>
                     </td>
                 </tr>
             {% endfor %}

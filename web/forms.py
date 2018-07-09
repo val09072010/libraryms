@@ -18,10 +18,10 @@ class AddEditBookForm(FlaskForm):
     submit = SubmitField(Res.FORM_ADD_EDIT_BOOK_SUBMIT)
 
 
-class AddAuthorForm(FlaskForm):
+class AddEditAuthorForm(FlaskForm):
     first_name = StringField(Res.FORM_ADD_AUTHOR_FNAME, validators=[DataRequired()])
     last_name = StringField(Res.FORM_ADD_AUTHOR_LNAME, validators=[DataRequired()])
-    submit = SubmitField(Res.ADD_AUTHOR_ACTION)
+    submit = SubmitField(Res.FORM_ADD_EDIT_AUTHOR_SUBMIT)
 
 
 class LoginForm(FlaskForm):

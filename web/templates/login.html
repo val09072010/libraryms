@@ -1,27 +1,25 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <div class="well-lg">
-        <form action="" method="post" novalidate>
-            {{ form.hidden_tag() }}
-            <p class="form-group">
-                {{ form.login.label }}<br />
-                {{ form.login(size=32) }}
-                {% for error in form.login.errors %}
-                    <span class="alert-danger">[{{ error }}]</span>
-                {% endfor %}
-            </p>
-            <p class="form-group">
-                {{ form.password.label }}<br />
-                {{ form.password(size=32) }}
-                {% for error in form.password.errors %}
-                    <span class="alert-danger">[{{ error }}]</span>
-                {% endfor %}
-            </p>
-            {{ form.submit(class="btn btn-primary") }}
-        </form>
-        {% if form.errors %}
-            <div class="alert-danger">{{ form.errors }}</div>
-        {% endif %}
-    </div>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p class="form-group">
+            {{ form.login.label }}<br />
+            {{ form.login(size=32) }}
+            {% for error in form.login.errors %}
+                <span class="alert-danger">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p class="form-group">
+            {{ form.password.label }}<br />
+            {{ form.password(size=32) }}
+            {% for error in form.password.errors %}
+                <span class="alert-danger">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+    {% if form.errors %}
+        <div class="alert-danger">{{ form.errors }}</div>
+    {% endif %}
 {% endblock %}

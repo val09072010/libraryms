@@ -30,7 +30,7 @@ def get_book_by_id(book_id):
 
 
 def get_author_by_id(author_id):
-    return db.session.query(Author).filter_by(id=author_id).first()
+    return Author.query.filter_by(id=author_id).first_or_404()
 
 
 def get_authors_by_id_list(author_ids):
@@ -75,3 +75,23 @@ def process_search_query(search_text):
 def security_validate(search_text):
     # so far stub :(
     return True
+
+
+def authors_list():
+    return list(Author.query.all())
+
+
+def update_author(author_id, first_name, last_name):
+    author = get_author_by_id(author_id)
+    author.first_name = first_name
+    author.last_name = last_name
+    db.session.commit()
+    return author
+
+
+def delete_author(id):
+    deleted_author = get_author_by_id(id)
+    deleted_author_name = "{0} {1}".format(deleted_author.first_name, deleted_author.last_name)
+    db.session.query(Author).filter_by(id=id).delete()
+    db.session.commit()
+    return deleted_author_name

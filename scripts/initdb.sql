@@ -1,3 +1,4 @@
+VACUUM
 INSERT INTO books (id, title, genre) VALUES (1, 'Viy','horor')
 INSERT INTO books (id, title, genre) VALUES (2, 'Chernovik','sci-fi')
 INSERT INTO books (id, title, genre) VALUES (3, 'Chistovik','sci-fi')

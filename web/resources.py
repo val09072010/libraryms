@@ -6,13 +6,18 @@ class Resources:
     ADD_BOOK_ACTION = u'Add book'
     EDIT_BOOK_ACTION = u'Edit book'
     ADD_AUTHOR_ACTION = u'Add author'
+    EDIT_AUTHOR_ACTION = u'Edit author'
     RESULT_ACTION = u'Search results'
     DEL_BOOK_ACTION = u'Delete book'
+    AUTHORS_LIST_ACTION = u'Authors list'
+    DEL_AUTHOR_ACTION = u'Delete book'
 
     FLASH_ADD_BOOK = u'Book "{0}" ({1}), author(s) #{2} added successfully'
     FLASH_DEL_BOOK = u'Book "{0}" ({1}) deleted successfully. Please note! Authors remain is system.'
     FLASH_EDIT_BOOK = u'Book "{0}" ({1}), author(s) #{2} updated successfully'
     FLASH_ADD_AUTHOR = u'Author {0}: {1} {2} added successfully'
+    FLASH_EDIT_AUTHOR = u'Author {0}: {1} {2} modified successfully'
+    FLASH_DEL_AUTHOR = u'Author {0}: {1} deleted successfully'
 
     LOGIN_ERROR = u'Invalid username or password'
     ADD_AUTHOR_ERROR = u'Added author already exists!'
@@ -27,13 +32,14 @@ class Resources:
     FORM_ADD_EDIT_BOOK_TITLE = u'Book title'
     FORM_ADD_EDIT_BOOK_GENRE = u'Genre'
     FORM_ADD_EDIT_BOOK_AUTHORS = u'Select authors'
-    FORM_ADD_EDIT_BOOK_SUBMIT = u'Save changes'
+    FORM_ADD_EDIT_BOOK_SUBMIT = u'Save book'
 
     FORM_ADD_AUTHOR_FNAME = u'First name'
     FORM_ADD_AUTHOR_LNAME = u'Last name'
+    FORM_ADD_EDIT_AUTHOR_SUBMIT = u'Save author'
 
     FORM_LOGIN_LOGIN = u'Login or email'
     FORM_LOGIN_PASS = u'Password'
 
     FORM_DEL_CONFIRM = u'I confirm'
-    FORM_DEL_ASK = u'Please confirm that you want to delete the book:'
+    FORM_DEL_ASK = u'Please confirm that you want to delete the:'

@@ -1,18 +1,16 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <div class="well-lg">
-        <form action="" method="post" name="search" class="form-inline">
-            {{ form.hidden_tag() }}
-            <p class="form-group">
-                {{ form.search_title.label }}<br />
-                {{ form.search_title(size=32) }}<br />
-            </p>
-            <p class="form-group">
-                {{ form.search_author.label }}<br />
-                {{ form.search_author(size=32) }}<br />
-            </p>
-            {{ form.submit(class="btn btn-primary") }}
-        </form>
-    </div>
+    <form action="" method="post" name="search" class="form-inline">
+        {{ form.hidden_tag() }}
+        <p class="form-group">
+            {{ form.search_title.label }}<br />
+            {{ form.search_title(size=32) }}<br />
+        </p>
+        <p class="form-group">
+            {{ form.search_author.label }}<br />
+            {{ form.search_author(size=32) }}<br />
+        </p>
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
 {% endblock %}

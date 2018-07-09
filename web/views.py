@@ -3,7 +3,7 @@ from web import web, db, core
 from werkzeug.urls import url_parse
 from flask import render_template, redirect, url_for, session, flash, request
 from flask_login import current_user, login_user, logout_user, login_required
-from .forms import SearchForm, AddEditBookForm, AddAuthorForm, LoginForm, DeleteForm
+from .forms import SearchForm, AddEditBookForm, AddEditAuthorForm, LoginForm, DeleteForm
 from .models import Author, User
 from .resources import Resources as Res
 
@@ -80,14 +80,14 @@ def add_book():
 
 def prepare_add_edit_book_form():
     form = AddEditBookForm()
-    form.authors.choices = list((str(i.id), i) for i in db.session.query(Author).all())
+    form.authors.choices = list((str(i.id), i) for i in core.authors_list())
     return form
 
 
 @web.route('/add_author', methods=['GET', 'POST'])
 @login_required
 def add_author():
-    form = AddAuthorForm()
+    form = AddEditAuthorForm()
     if form.validate_on_submit():
         last_name = form.last_name.data.strip()
         existing_authors = db.session.query(Author).filter_by(last_name=last_name).all()
@@ -99,7 +99,7 @@ def add_author():
             db.session.commit()
             flash(Res.FLASH_ADD_AUTHOR.format(author.id, author.first_name, author.last_name))
             return redirect(url_for('index'))
-    return render_template("add_author.html", form=form, title=Res.TITLE, page_action=Res.ADD_AUTHOR_ACTION)
+    return render_template("add_edit_author.html", form=form, title=Res.TITLE, page_action=Res.ADD_AUTHOR_ACTION)
 
 
 @web.route('/delete_book/<book_id>', methods=['POST', 'GET'])
@@ -112,7 +112,7 @@ def del_book(book_id):
         return redirect(url_for('index'))
     else:
         deleted_book = core.get_book_by_id(book_id)
-        return render_template("delete.html", form=form, ask_for_confirmation=Res.FORM_DEL_ASK,
+        return render_template("delete_book.html", form=form, ask_for_confirmation=Res.FORM_DEL_ASK,
                                title=Res.TITLE, page_action=Res.DEL_BOOK_ACTION, book=deleted_book)
 
 
@@ -138,3 +138,40 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+
+@web.route('/authors')
+def authors():
+    return render_template("authors.html", title=Res.TITLE, page_action=Res.AUTHORS_LIST_ACTION,
+                           authors=core.authors_list())
+
+
+@web.route('/edit_author/<id>', methods=['GET', 'POST'])
+@login_required
+def edit_author(id):
+    form = AddEditAuthorForm()
+    if form.validate_on_submit():
+        first_name = form.first_name.data.strip()
+        last_name = form.last_name.data.strip()
+        author = core.update_author(id, first_name, last_name)
+        flash(Res.FLASH_EDIT_AUTHOR.format(author.id, author.first_name, author.last_name))
+        return redirect(url_for('authors'))
+    elif request.method == 'GET':
+        author = core.get_author_by_id(id)
+        form.first_name.data = author.first_name
+        form.last_name.data = author.last_name
+    return render_template("add_edit_author.html", form=form, title=Res.TITLE, page_action=Res.EDIT_AUTHOR_ACTION)
+
+
+@web.route('/delete_author/<id>', methods=['POST', 'GET'])
+@login_required
+def del_author(id):
+    form = DeleteForm()
+    if form.validate_on_submit():
+        deleted_author_name = core.delete_author(id)
+        flash(Res.FLASH_DEL_AUTHOR.format(id, deleted_author_name))
+        return redirect(url_for('authors'))
+    else:
+        deleted_author = core.get_author_by_id(id)
+        return render_template("delete_author.html", form=form, ask_for_confirmation=Res.FORM_DEL_ASK,
+                               title=Res.TITLE, page_action=Res.DEL_AUTHOR_ACTION, author=deleted_author)

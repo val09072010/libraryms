@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <p><a href="{{ url_for('add_author') }}">Add author</a></p>
+    {% if authors %}
+        <table class="table-bordered table-striped">
+            <tr>
+                <th>Last name</th>
+                <th>First name</th>
+                <th>Books</th>
+                <th>Actions</th>
+            </tr>
+            {% for author in authors %}
+                <tr>
+                    <td>{{ author.first_name }}</td>
+                    <td>{{ author.last_name }}</td>
+                    <td>{{ author.books }}</td>
+                    <td>
+                        <a href="/edit_author/{{ author.id }}" class="glyphicon glyphicon-edit"></a>
+                        <a href="/delete_author/{{ author.id }}" class="glyphicon glyphicon-remove"></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else%}
+        <div class="alert alert-warning">{{ msg }}</div>
+    {% endif %}
+    <br />
+{% endblock %}

@@ -30,7 +30,7 @@ class Book(db.Model):
 
     @property
     def to_dict(self):
-        return {'id': self.id, 'title': self.title, 'genre': self.genre, 'authors': self.serialize_authors }
+        return {'id': self.id, 'title': self.title, 'genre': self.genre, 'authors': self.serialize_authors}
 
     @property
     def serialize_authors(self):
@@ -56,13 +56,13 @@ class Author(db.Model):
 
     @property
     def to_dict(self):
-        return {'id': self.id, 'first_name': self.first_name, 'last_name': self.last_name }
+        return {'id': self.id, 'first_name': self.first_name, 'last_name': self.last_name}
 
 
 class BooksAuthors(db.Model):
     __tablename__ = _TABLE_REL
-    book_id = db.Column(db.Integer, db.ForeignKey('books.id'), primary_key=True)
-    author_id = db.Column(db.Integer, db.ForeignKey('authors.id'), primary_key=True)
+    book_id = db.Column(db.Integer, db.ForeignKey('books.id', ondelete='CASCADE'), primary_key=True)
+    author_id = db.Column(db.Integer, db.ForeignKey('authors.id', ondelete='CASCADE'), primary_key=True)
 
 
 class User(UserMixin, db.Model):
@@ -89,5 +89,5 @@ class User(UserMixin, db.Model):
 
 
 @lm.user_loader
-def load_user(id):
-    return User.query.get(int(id))
+def load_user(usr_id):
+    return User.query.get(int(usr_id))

@@ -59,7 +59,7 @@ def delete_book(book_id):
     deleted_book = get_book_by_id(book_id)
     deleted_book_title = deleted_book.title
     deleted_book_genre = deleted_book.genre
-    db.session.query(Book).filter_by(id=book_id).delete()
+    db.session.delete(deleted_book)
     db.session.commit()
     return deleted_book_title, deleted_book_genre
 
@@ -89,9 +89,9 @@ def update_author(author_id, first_name, last_name):
     return author
 
 
-def delete_author(id):
-    deleted_author = get_author_by_id(id)
+def delete_author(author_id):
+    deleted_author = get_author_by_id(author_id)
     deleted_author_name = "{0} {1}".format(deleted_author.first_name, deleted_author.last_name)
-    db.session.query(Author).filter_by(id=id).delete()
+    db.session.delete(deleted_author)
     db.session.commit()
     return deleted_author_name

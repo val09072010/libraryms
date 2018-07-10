@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 flask db init
 flask db migrate
-web/db_testdata_load.py
+./web/db_testdata_load.py

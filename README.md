@@ -39,5 +39,7 @@
 7 RoadMap
 1) Bootstrap
 2) AJAX
-3) Migrate PostrgreSQL
+3) Migrate to PostrgreSQL
 4) Multi-language support
+
+Miguel Grinberg, many thanks for comprehensive Mega tutorial (https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)

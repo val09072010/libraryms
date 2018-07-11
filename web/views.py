@@ -18,7 +18,7 @@ def index():
 @web.route('/books')
 def books():
     current_books = core.search_book("", criteria=core.SEARCH_ALL, serialize=True)
-    text.currentaction = Res.RESULT_ACTION
+    text.currentaction = Res.BOOKS_LIST_ACTION
     return render_template("books.html", books=current_books, text=text)
 
 
@@ -63,7 +63,7 @@ def edit_book(book_id):
         author_ids = form.authors.data
         book = core.update_book(book_id, title, genre, author_ids)
         flash(Res.FLASH_EDIT_BOOK.format(book.title, book.genre, book.authors))
-        return redirect(url_for('index'))
+        return redirect(url_for('books'))
     elif request.method == 'GET':
         book = core.get_book_by_id(book_id)
         form.authors.default = str(book.authors[0].id)
@@ -84,7 +84,7 @@ def add_book():
         author_ids = form.authors.data
         book = core.store_book(title, genre, author_ids)
         flash(Res.FLASH_ADD_BOOK.format(book.title, book.genre, book.authors))
-        return redirect(url_for('index'))
+        return redirect(url_for('books'))
     text.currentaction = Res.ADD_BOOK_ACTION
     return render_template("add_edit_book.html", form=form, text=text)
 
@@ -121,7 +121,7 @@ def del_book(book_id):
     if form.validate_on_submit():
         deleted_book_title, deleted_book_genre = core.delete_book(book_id)
         flash(Res.FLASH_DEL_BOOK.format(deleted_book_title, deleted_book_genre))
-        return redirect(url_for('index'))
+        return redirect(url_for('books'))
     else:
         deleted_book = core.get_book_by_id(book_id)
         text.currentaction = Res.DEL_BOOK_ACTION

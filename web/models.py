@@ -58,6 +58,11 @@ class Author(db.Model):
     def to_dict(self):
         return {'id': self.id, 'first_name': self.first_name, 'last_name': self.last_name}
 
+    @property
+    def books_str(self):
+        names = ["{0} ({1})".format(book.title, book.genre) for book in self.books]
+        return " | ".join(names)
+
 
 class BooksAuthors(db.Model):
     __tablename__ = _TABLE_REL

@@ -28,6 +28,7 @@ class Resources:
     ERR_404 = u'Oops! Page not found. While we are looking for it please enjoy our ascii graphic!'
     ERR_500 = u'Ouch! Seems something serious has happened'
     ERROR_USER_INPUT_FORBID_CHARS = u'User input contains forbidden or suspicious characters!'
+    ERROR_NO_SEARCH_CRITERIA = u'No search criteria provided'
 
     FORM_SEARCH_BY_TITLE = u'Search by Book title'
     FORM_SEARCH_BY_AUTHOR = u'Search by Author'

@@ -37,6 +37,7 @@ def search():
             criteria = core.SEARCH_BY_AUTHOR_LASTNAME
             search_text = author_to_search
         else:
+            form.errors['Input'] = Res.ERROR_NO_SEARCH_CRITERIA
             return render_template("search.html", form=form, text=text)
         session['books'] = core.search_book(search_text, criteria=criteria, serialize=True)
         return redirect(url_for("result"))

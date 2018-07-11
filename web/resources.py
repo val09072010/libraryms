@@ -12,6 +12,7 @@ class Resources:
     RESULT_ACTION = u'Search results'
     DEL_BOOK_ACTION = u'Delete book'
     AUTHORS_LIST_ACTION = u'Authors'
+    BOOKS_LIST_ACTION = u'Books'
     DEL_AUTHOR_ACTION = u'Delete book'
 
     FLASH_ADD_BOOK = u'Book "{0}" ({1}), author(s) #{2} added successfully'

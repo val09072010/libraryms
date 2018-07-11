@@ -10,5 +10,5 @@ class NavigationLabels():
     signin = Res.SIGNIN_ACTION
     signout = Res.SIGNOUT_ACTION
     authors = Res.AUTHORS_LIST_ACTION
-    newsearch = Res.NEW_SEARCH_ACTION
+    books = Res.BOOKS_LIST_ACTION
     currentaction = ""

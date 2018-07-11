@@ -17,17 +17,15 @@ def index():
 
 @web.route('/books')
 def books():
-    current_books = []
-    book_not_found_msg = Res.NOTHING_FOUND
-    if 'books' in session:
-        current_books = session['books']
+    current_books = core.search_book("", criteria=core.SEARCH_ALL, serialize=True)
     text.currentaction = Res.RESULT_ACTION
-    return render_template("books.html", books=current_books, text=text, msg=book_not_found_msg)
+    return render_template("books.html", books=current_books, text=text)
 
 
 @web.route('/search', methods=['GET', 'POST'])
 def search():
     form = SearchForm()
+    text.currentaction = Res.SEARCH_ACTION
     if form.validate_on_submit():
         title_to_search = form.search_title.data.strip()
         author_to_search = form.search_author.data.strip()
@@ -39,11 +37,20 @@ def search():
             criteria = core.SEARCH_BY_AUTHOR_LASTNAME
             search_text = author_to_search
         else:
-            criteria = core.SEARCH_ALL
+            return render_template("search.html", form=form, text=text)
         session['books'] = core.search_book(search_text, criteria=criteria, serialize=True)
-        return redirect(url_for("books"))
-    text.currentaction = Res.SEARCH_ACTION
+        return redirect(url_for("result"))
     return render_template("search.html", form=form, text=text)
+
+
+@web.route('/result')
+def result():
+    current_books = []
+    book_not_found_msg = Res.NOTHING_FOUND
+    if 'books' in session:
+        current_books = session['books']
+    text.currentaction = Res.RESULT_ACTION
+    return render_template("books.html", books=current_books, text=text, msg=book_not_found_msg)
 
 
 @web.route('/edit_book/<book_id>', methods=['GET', 'POST'])

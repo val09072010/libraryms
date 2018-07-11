@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from web import web, db, core
+from web import web, db, core, text
 from werkzeug.urls import url_parse
 from flask import render_template, redirect, url_for, session, flash, request
 from flask_login import current_user, login_user, logout_user, login_required
@@ -11,17 +11,18 @@ from .resources import Resources as Res
 @web.route('/')
 @web.route('/index')
 def index():
-    return render_template("index.html", title=Res.TITLE)
+    text.currentaction = ''
+    return render_template("index.html", text=text)
 
 
-@web.route('/results')
-def results():
+@web.route('/books')
+def books():
     current_books = []
     book_not_found_msg = Res.NOTHING_FOUND
     if 'books' in session:
         current_books = session['books']
-    return render_template("results.html", books=current_books, title=Res.TITLE, page_action=Res.RESULT_ACTION,
-                           msg=book_not_found_msg)
+    text.currentaction = Res.RESULT_ACTION
+    return render_template("books.html", books=current_books, text=text, msg=book_not_found_msg)
 
 
 @web.route('/search', methods=['GET', 'POST'])
@@ -40,8 +41,9 @@ def search():
         else:
             criteria = core.SEARCH_ALL
         session['books'] = core.search_book(search_text, criteria=criteria, serialize=True)
-        return redirect(url_for("results"))
-    return render_template("search.html", form=form, title=Res.TITLE, page_action=Res.SEARCH_ACTION)
+        return redirect(url_for("books"))
+    text.currentaction = Res.SEARCH_ACTION
+    return render_template("search.html", form=form, text=text)
 
 
 @web.route('/edit_book/<book_id>', methods=['GET', 'POST'])
@@ -61,7 +63,8 @@ def edit_book(book_id):
         form.process()
         form.book_title.data = book.title
         form.book_genre.data = book.genre
-    return render_template("add_edit_book.html", form=form, title=Res.TITLE, page_action=Res.EDIT_BOOK_ACTION)
+    text.currentaction = Res.EDIT_BOOK_ACTION
+    return render_template("add_edit_book.html", form=form, text=text)
 
 
 @web.route('/add_book', methods=['GET', 'POST'])
@@ -75,7 +78,8 @@ def add_book():
         book = core.store_book(title, genre, author_ids)
         flash(Res.FLASH_ADD_BOOK.format(book.title, book.genre, book.authors))
         return redirect(url_for('index'))
-    return render_template("add_edit_book.html", form=form, title=Res.TITLE, page_action=Res.ADD_BOOK_ACTION)
+    text.currentaction = Res.ADD_BOOK_ACTION
+    return render_template("add_edit_book.html", form=form, text=text)
 
 
 def prepare_add_edit_book_form():
@@ -98,8 +102,9 @@ def add_author():
             db.session.add(author)
             db.session.commit()
             flash(Res.FLASH_ADD_AUTHOR.format(author.id, author.first_name, author.last_name))
-            return redirect(url_for('index'))
-    return render_template("add_edit_author.html", form=form, title=Res.TITLE, page_action=Res.ADD_AUTHOR_ACTION)
+            return redirect(url_for('authors'))
+    text.currentaction = Res.ADD_AUTHOR_ACTION
+    return render_template("add_edit_author.html", form=form, text=text)
 
 
 @web.route('/delete_book/<book_id>', methods=['POST', 'GET'])
@@ -112,8 +117,9 @@ def del_book(book_id):
         return redirect(url_for('index'))
     else:
         deleted_book = core.get_book_by_id(book_id)
+        text.currentaction = Res.DEL_BOOK_ACTION
         return render_template("delete_book.html", form=form, ask_for_confirmation=Res.FORM_DEL_ASK,
-                               title=Res.TITLE, page_action=Res.DEL_BOOK_ACTION, book=deleted_book)
+                               text=text, book=deleted_book)
 
 
 @web.route('/login', methods=['GET', 'POST'])
@@ -131,7 +137,8 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
         return redirect(next_page)
-    return render_template("login.html", form=form, title=Res.TITLE, page_action=Res.SIGNIN_ACTION)
+    text.currentaction = Res.SIGNIN_ACTION
+    return render_template("login.html", form=form, text=text)
 
 
 @web.route('/logout')
@@ -142,36 +149,38 @@ def logout():
 
 @web.route('/authors')
 def authors():
-    return render_template("authors.html", title=Res.TITLE, page_action=Res.AUTHORS_LIST_ACTION,
-                           authors=core.authors_list())
+    text.currentaction = Res.AUTHORS_LIST_ACTION
+    return render_template("authors.html", text=text, authors=core.authors_list())
 
 
-@web.route('/edit_author/<id>', methods=['GET', 'POST'])
+@web.route('/edit_author/<author_id>', methods=['GET', 'POST'])
 @login_required
-def edit_author(id):
+def edit_author(author_id):
     form = AddEditAuthorForm()
     if form.validate_on_submit():
         first_name = form.first_name.data.strip()
         last_name = form.last_name.data.strip()
-        author = core.update_author(id, first_name, last_name)
+        author = core.update_author(author_id, first_name, last_name)
         flash(Res.FLASH_EDIT_AUTHOR.format(author.id, author.first_name, author.last_name))
         return redirect(url_for('authors'))
     elif request.method == 'GET':
-        author = core.get_author_by_id(id)
+        author = core.get_author_by_id(author_id)
         form.first_name.data = author.first_name
         form.last_name.data = author.last_name
-    return render_template("add_edit_author.html", form=form, title=Res.TITLE, page_action=Res.EDIT_AUTHOR_ACTION)
+    text.currentaction = Res.EDIT_AUTHOR_ACTION
+    return render_template("add_edit_author.html", form=form, text=text)
 
 
-@web.route('/delete_author/<id>', methods=['POST', 'GET'])
+@web.route('/delete_author/<author_id>', methods=['POST', 'GET'])
 @login_required
-def del_author(id):
+def del_author(author_id):
     form = DeleteForm()
     if form.validate_on_submit():
-        deleted_author_name = core.delete_author(id)
-        flash(Res.FLASH_DEL_AUTHOR.format(id, deleted_author_name))
+        deleted_author_name = core.delete_author(author_id)
+        flash(Res.FLASH_DEL_AUTHOR.format(author_id, deleted_author_name))
         return redirect(url_for('authors'))
     else:
-        deleted_author = core.get_author_by_id(id)
+        deleted_author = core.get_author_by_id(author_id)
+        text.currentaction = Res.DEL_AUTHOR_ACTION
         return render_template("delete_author.html", form=form, ask_for_confirmation=Res.FORM_DEL_ASK,
-                               title=Res.TITLE, page_action=Res.DEL_AUTHOR_ACTION, author=deleted_author)
+                               text=text, author=deleted_author)

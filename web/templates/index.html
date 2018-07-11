@@ -9,9 +9,9 @@
         <script src="/static/js/app.js"></script>
         <link rel="stylesheet" href="/static/css/lms.css">
         {% if page_action %}
-            <title>{{ title }}. {{ page_action }}.</title>
+            <title>{{ text.title }}. {{ text.currentaction }}.</title>
         {% else %}
-            <title>{{ title }}</title>
+            <title>{{ text.home }}</title>
         {% endif %}
     </head>
     <body>
@@ -19,21 +19,21 @@
             <nav class="navbar navbar">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a href="{{ url_for('index') }}" class="navbar-brand">{{ title }}</a>
+                        <a href="{{ url_for('index') }}" class="navbar-brand">{{ text.home }}</a>
                     </div>
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ url_for('search') }}">Search</a> </li>
-                        <li><a href="{{ url_for('add_book') }}">Add book</a> </li>
-                        <li><a href="{{ url_for('authors') }}">Manage authors</a> </li>
+                        <li><a href="{{ url_for('search') }}">{{ text.search }}</a> </li>
+                        <li><a href="{{ url_for('add_book') }}">{{ text.addbook }}</a> </li>
+                        <li><a href="{{ url_for('authors') }}">{{ text.authors }}</a> </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         {% if current_user.is_anonymous %}
                             <li>
-                                <a href="{{ url_for('login') }}"><span class="glyphicon glyphicon-user"></span> Sign In</a>
+                                <a href="{{ url_for('login') }}"><span class="glyphicon glyphicon-user"></span> {{ text.signin }}</a>
                             </li>
                         {% else %}
                             <li>
-                                <a href="{{ url_for('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Sign Out</a>
+                                <a href="{{ url_for('logout') }}"><span class="glyphicon glyphicon-log-in"></span> {{ text.signout }}</a>
                             </li>
                         {% endif %}
                     </ul>
@@ -142,6 +142,7 @@
                                     <li>Migrate to PostrgreSQL</li>
                                     <li>SQLAlchemy</li>
                                     <li>Multi-language support</li>
+                                    <li>User registration</li>
                                 </ul>
                             </div>
                         </div>
@@ -160,9 +161,9 @@
                 <br />
             {% else %}
                 {% if current_user.is_anonymous %}
-                    <h4>Guest, welcome to LMS. {{ page_action }} </h4>
+                    <h4>Guest, {{ text.greeting }}. {{ text.currentaction }} </h4>
                 {% else %}
-                    <h4>{{ current_user.login }}, welcome to LMS. {{ page_action }} </h4>
+                    <h4>{{ current_user.login }}, {{ text.greeting }}. {{ text.currentaction }} </h4>
                 {% endif %}
             {% endif %}
 

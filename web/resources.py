@@ -2,14 +2,16 @@
 class Resources:
     TITLE = u'LMS'
     SEARCH_ACTION = u'Search'
+    NEW_SEARCH_ACTION = u'New search ?'
     SIGNIN_ACTION = u'Sign In'
+    SIGNOUT_ACTION = u'Sign Out'
     ADD_BOOK_ACTION = u'Add book'
     EDIT_BOOK_ACTION = u'Edit book'
     ADD_AUTHOR_ACTION = u'Add author'
     EDIT_AUTHOR_ACTION = u'Edit author'
     RESULT_ACTION = u'Search results'
     DEL_BOOK_ACTION = u'Delete book'
-    AUTHORS_LIST_ACTION = u'Authors list'
+    AUTHORS_LIST_ACTION = u'Authors'
     DEL_AUTHOR_ACTION = u'Delete book'
 
     FLASH_ADD_BOOK = u'Book "{0}" ({1}), author(s) #{2} added successfully'
@@ -43,3 +45,5 @@ class Resources:
 
     FORM_DEL_CONFIRM = u'I confirm'
     FORM_DEL_ASK = u'Please confirm that you want to delete the:'
+
+    GREETING = u'welcome to LMS'

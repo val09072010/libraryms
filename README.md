@@ -41,5 +41,6 @@
 2) AJAX
 3) Migrate to PostrgreSQL
 4) Multi-language support
+5) User registration
 
 Miguel Grinberg, many thanks for comprehensive Mega tutorial (https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)

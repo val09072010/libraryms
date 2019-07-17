@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     version="1.1"
+     viewBox="0 0 600 320"
+     width="500"
+     height="300">
+    <defs>
+        <path d="M523.42 59.98L555.79 64.7L532.37 87.63L537.9 120L508.95 104.71L480 120L485.53 87.63L462.11 64.7L494.47 59.98L508.95 30.53L523.42 59.98Z" id="c5ooqqNxHD"></path>
+        <path d="M531.99 63.15L560.79 78.66L530.94 92.2L525.06 124.51L503.08 100.24L470.65 104.7L486.92 76.17L472.75 46.62L504.79 53.25L528.46 30.53L531.99 63.15Z" id="cmgZ7ZTMl"></path>
+        <path d="M532.1 71.83L551.64 98.06L518.87 97.71L499.89 124.51L490.23 93.23L458.95 83.56L485.75 64.58L485.4 31.81L511.63 51.36L542.69 40.77L532.1 71.83Z" id="c128S4O57o"></path>
+        <path d="M393.4 30.53C425.48 30.53 451.49 44.93 451.49 62.7C451.49 63.37 451.45 64.04 451.37 64.7C474.54 67.4 491.58 76.45 491.58 87.2C491.58 87.2 491.58 87.2 491.58 87.2C491.58 100.08 467.12 110.53 436.94 110.53C423.24 110.53 313.6 110.53 299.9 110.53C269.73 110.53 245.26 100.08 245.26 87.2C245.26 87.2 245.26 87.2 245.26 87.2C245.26 75.97 263.86 66.59 288.61 64.37C290.83 52.2 309.39 42.69 331.96 42.69C336.92 42.69 341.67 43.15 346.12 43.99C356.66 35.84 373.91 30.53 393.4 30.53Z" id="a48FhbLc5R"></path>
+        <path d="M458.67 54.74C490.74 54.74 516.75 69.14 516.75 86.91C516.75 87.58 516.72 88.25 516.64 88.91C539.81 91.61 556.84 100.66 556.84 111.41C556.84 111.41 556.84 111.41 556.84 111.41C556.84 124.29 532.38 134.74 502.21 134.74C488.5 134.74 378.87 134.74 365.16 134.74C334.99 134.74 310.53 124.29 310.53 111.41C310.53 111.41 310.53 111.41 310.53 111.41C310.53 100.18 329.12 90.8 353.88 88.58C356.09 76.41 374.65 66.9 397.22 66.9C402.18 66.9 406.94 67.36 411.38 68.21C421.93 60.05 439.17 54.74 458.67 54.74Z" id="dzjGeJSNe"></path>
+        <path d="M218.21 10.53C265.91 10.53 304.59 35.73 304.59 66.83C304.59 68 304.54 69.17 304.42 70.32C338.87 75.05 364.21 90.89 364.21 109.7C364.21 109.7 364.21 109.7 364.21 109.7C364.21 132.25 327.83 150.53 282.96 150.53C262.58 150.53 99.53 150.53 79.15 150.53C34.28 150.53 -2.11 132.25 -2.11 109.7C-2.11 109.7 -2.11 109.7 -2.11 109.7C-2.11 90.05 25.55 73.64 62.36 69.76C65.66 48.45 93.26 31.82 126.82 31.82C134.2 31.82 141.27 32.62 147.88 34.1C163.57 19.83 189.22 10.53 218.21 10.53Z" id="bKrxziE5u"></path>
+        <path d="M550.9 7.37C566.26 7.37 578.71 26.51 578.71 50.13C578.71 51.02 578.69 51.91 578.65 52.78C589.74 56.37 597.89 68.4 597.89 82.68C597.89 82.68 597.89 82.68 597.89 82.68C597.89 99.8 586.19 113.68 571.74 113.68C565.19 113.68 512.71 113.68 506.15 113.68C491.71 113.68 480 99.8 480 82.68C480 82.68 480 82.68 480 82.68C480 67.76 488.9 55.3 500.75 52.35C501.81 36.17 510.69 23.54 521.49 23.54C523.87 23.54 526.14 24.15 528.27 25.27C533.32 14.43 541.57 7.37 550.9 7.37Z" id="a3n4HBizoC"></path>
+        <path d="M0 382.11L635.79 366.32L610.53 286.32L545.26 303.16L470.65 331.58L384.21 316.84L191.58 320L5.26 351.58L0 382.11Z" id="b2dlrRVcm7"></path>
+        <path d="M352.89 247.5L352.9 247.4L352.9 247.3L352.91 247.19L352.93 247.09L352.95 247L352.97 246.9L352.99 246.8L353.02 246.71L353.06 246.62L353.09 246.53L353.13 246.44L353.17 246.35L353.22 246.27L353.27 246.18L353.32 246.1L353.38 246.02L353.44 245.95L353.5 245.87L353.56 245.8L353.63 245.73L353.7 245.67L353.77 245.6L353.84 245.54L353.92 245.48L354 245.43L354.08 245.37L354.16 245.33L354.25 245.28L354.33 245.24L354.42 245.2L354.51 245.16L354.6 245.13L354.7 245.1L354.79 245.07L354.89 245.05L354.99 245.03L355.09 245.02L355.19 245.01L355.29 245L355.39 245L365.39 245L365.5 245L365.6 245.01L365.7 245.02L365.8 245.03L365.9 245.05L366 245.07L366.09 245.1L366.18 245.13L366.28 245.16L366.37 245.2L366.46 245.24L366.54 245.28L366.63 245.33L366.71 245.37L366.79 245.43L366.87 245.48L366.95 245.54L367.02 245.6L367.09 245.67L367.16 245.73L367.23 245.8L367.29 245.87L367.35 245.95L367.41 246.02L367.47 246.1L367.52 246.18L367.57 246.27L367.62 246.35L367.66 246.44L367.7 246.53L367.73 246.62L367.77 246.71L367.8 246.8L367.82 246.9L367.84 247L367.86 247.09L367.88 247.19L367.89 247.3L367.89 247.4L367.89 247.5L367.89 273.75L377.89 285L367.89 285L367.89 320L345.63 320L345.63 319.99L345.64 319.88L345.64 295.6L345.63 295.49L345.63 295.38L345.62 295.27L345.6 295.16L345.58 295.06L345.56 294.95L345.54 294.85L345.51 294.75L345.47 294.65L345.43 294.55L345.39 294.46L345.35 294.36L345.3 294.27L345.25 294.18L345.2 294.09L345.14 294.01L345.08 293.93L345.02 293.85L344.95 293.77L344.88 293.69L344.81 293.62L344.74 293.55L344.66 293.49L344.58 293.42L344.5 293.36L344.41 293.31L344.33 293.25L344.24 293.2L344.15 293.16L344.06 293.12L343.97 293.08L343.87 293.04L343.77 293.01L343.68 292.98L343.58 292.96L343.47 292.94L343.37 292.92L343.27 292.91L343.16 292.91L343.06 292.9L332.73 292.9L332.63 292.91L332.52 292.91L332.42 292.92L332.32 292.94L332.21 292.96L332.11 292.98L332.02 293.01L331.92 293.04L331.82 293.08L331.73 293.12L331.64 293.16L331.55 293.2L331.46 293.25L331.37 293.31L331.29 293.36L331.21 293.42L331.13 293.49L331.05 293.55L330.98 293.62L330.91 293.69L330.84 293.77L330.77 293.85L330.71 293.93L330.65 294.01L330.59 294.09L330.54 294.18L330.49 294.27L330.44 294.36L330.4 294.46L330.36 294.55L330.32 294.65L330.28 294.75L330.25 294.85L330.23 294.95L330.21 295.06L330.19 295.16L330.17 295.27L330.16 295.38L330.15 295.49L330.15 295.6L330.15 319.88L330.15 319.99L330.15 320L307.89 320L307.89 285L297.89 285L337.89 240L352.89 256.88L352.89 247.5Z" id="j2Sfc6VULC"></path>
+        <path d="M52.63 189.47L67.37 164.21" id="e1RK7E1O4k"></path>
+        <path d="M111.58 189.47L126.32 164.21" id="b1bBxgofrh"></path>
+        <path d="M401.05 234.74L415.79 209.47" id="bGe0QtOFN"></path>
+        <path d="M444.21 181.05L458.95 155.79" id="c2BKYRTai3"></path>
+        <path d="M458.95 222.11L473.69 196.84" id="dPHUhOh4"></path>
+        <path d="M480 176.84L494.74 151.58" id="aizpNqgV5"></path>
+        <path d="M74.74 227.37L89.47 202.11" id="eafHtdxhN1"></path>
+        <path d="M176.84 196.84L191.58 171.58" id="nhcxdfEMg"></path>
+        <path d="M237.89 200L252.63 174.74" id="dOOR0Z4E"></path>
+        <path d="M131.58 209.47L146.32 184.21" id="i9nswm6jLh"></path>
+        <path d="M196.84 216.84L211.58 191.58" id="f4s5fH3FYb"></path>
+        <path d="M257.89 220L272.63 194.74" id="a1evXdc55n"></path>
+        <path d="M386.32 189.47L401.05 164.21" id="a27wfnCVRE"></path>
+        <path d="M295.79 187.37L310.53 162.11" id="b2kvfIOjG2"></path>
+        <path d="M315.79 207.37L330.53 182.11" id="c1yaJcReJb"></path>
+        <path d="M349.47 189.47L364.21 164.21" id="aRfW5k7X8"></path>
+        <path d="M41.05 260L55.79 234.74" id="b5XgshXHLo"></path>
+        <path d="M114.74 267.37L129.47 242.11" id="d4uIuSe8G"></path>
+        <path d="M216.84 236.84L231.58 211.58" id="a69AAhuu2Y"></path>
+        <path d="M335.79 227.37L350.53 202.11" id="c1KJcdH9iK"></path>
+    </defs>
+    <g>
+        <g>
+            <g>
+                <use xlink:href="#c5ooqqNxHD" opacity="1" fill="#f5e15b" fill-opacity="1"></use>
+                <g>
+                    <use xlink:href="#c5ooqqNxHD" opacity="1" fill-opacity="0" stroke="#f9dc13" stroke-width="1" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <use xlink:href="#cmgZ7ZTMl" opacity="1" fill="#f5e15b" fill-opacity="1"></use>
+                <g>
+                    <use xlink:href="#cmgZ7ZTMl" opacity="1" fill-opacity="0" stroke="#f9dc13" stroke-width="1" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <use xlink:href="#c128S4O57o" opacity="1" fill="#f5e15b" fill-opacity="1"></use>
+                <g>
+                    <use xlink:href="#c128S4O57o" opacity="1" fill-opacity="0" stroke="#f9dc13" stroke-width="1" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <use xlink:href="#a48FhbLc5R" opacity="1" fill="#316ca2" fill-opacity="1"></use>
+                <g>
+                    <use xlink:href="#a48FhbLc5R" opacity="1" fill-opacity="0" stroke="#316ca2" stroke-width="1" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <use xlink:href="#dzjGeJSNe" opacity="1" fill="#5babf5" fill-opacity="1"></use>
+                <g>
+                    <use xlink:href="#dzjGeJSNe" opacity="1" fill-opacity="0" stroke="#5babf5" stroke-width="1" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <use xlink:href="#bKrxziE5u" opacity="1" fill="#9098d1" fill-opacity="1"></use>
+                <g>
+                    <use xlink:href="#bKrxziE5u" opacity="1" fill-opacity="0" stroke="#9098d1" stroke-width="1" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <use xlink:href="#a3n4HBizoC" opacity="1" fill="#5babf5" fill-opacity="1"></use>
+                <g>
+                    <use xlink:href="#a3n4HBizoC" opacity="1" fill-opacity="0" stroke="#5babf5" stroke-width="1" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <use xlink:href="#b2dlrRVcm7" opacity="1" fill="#4fcc16" fill-opacity="1"></use>
+                <g>
+                    <use xlink:href="#b2dlrRVcm7" opacity="1" fill-opacity="0" stroke="#4fcc16" stroke-width="1" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <use xlink:href="#j2Sfc6VULC" opacity="1" fill="#7b3707" fill-opacity="1"></use>
+                <g>
+                    <use xlink:href="#j2Sfc6VULC" opacity="1" fill-opacity="0" stroke="#7b3707" stroke-width="1" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#e1RK7E1O4k" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#b1bBxgofrh" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#bGe0QtOFN" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#c2BKYRTai3" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#dPHUhOh4" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#aizpNqgV5" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#eafHtdxhN1" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#nhcxdfEMg" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#dOOR0Z4E" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#i9nswm6jLh" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#f4s5fH3FYb" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#a1evXdc55n" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#a27wfnCVRE" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#b2kvfIOjG2" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#c1yaJcReJb" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#aRfW5k7X8" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#b5XgshXHLo" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#d4uIuSe8G" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#a69AAhuu2Y" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <use xlink:href="#c1KJcdH9iK" opacity="1" fill-opacity="0" stroke="#075ce9" stroke-width="2" stroke-opacity="1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
